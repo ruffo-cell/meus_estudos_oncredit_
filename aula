@@ -1,27 +1,71 @@
-00.md
-# Projeto ONCredit
+### Sumário
 
-*`Por Luferat — 30/01/2026`*
+- [ ] [00. Introdução](./00.md Projeto ONCredit - Contexto do Projeto
+Por Luferat — 30/01/2026
 
-## Sumário
+Objetivo do aplicativo
+Tenho uma amiga que administra uma pequena loja de roupas em casa.
+Ela tem ótimos produtos, muitos clientes fiéis e um grande diferencial: oferece crédito (o famoso “fiado”) para os clientes mais assíduos.
 
- - ✅ [Contexto do Projeto](#file-01-md) 
- - ✅ [Descrição do Projeto](#file-02-md)
- - ✅ [Iniciando o Projeto](#file-03-md)
- - ✅ [Preparando o Firebase](#file-04-md)
- - ✅ [Página Inicial](#file-05-md)
- - ✅ [Página do Cliente](#file-06-md)
- - ✅ [Histórico do Cliente](#file-07-md)
- - ✅ [Pequenos Detalhes](#file-08-md)
- - ✅ [Cadastro de Clientes](#file-09-md)
- - ✅ [Mostrando Contatos](#file-10-md)
- - ✅ [Editar Cliente](#file-11-md)
- - ✅ [Apagar Cliente](#file-12-md)
- - ✅ [Registros Financeiros](#file-13-md)
- - ✅ [Ajustes e UI](#file-14-md)
- - 🟥 [Página Settings](#file-15-md)
- - 🟥 [Instalando o APK](#file-16-md)
+Eles levam as roupas na hora e pagam depois, aos poucos, conforme a disponibilidade de cada um. Muitas vezes o cliente volta, paga uma parte da dívida, acumula mais crédito e leva outras peças…
 
-#### Legenda
- - ✅ Concluído
- - 🟥 Pendente
+Atualmente ela controla tudo manualmente em cadernos e papéis soltos — o que é bem trabalhoso e propenso a erros.
+Já tentei ensiná-la a usar Excel, mas ela é idosa e tem bastante resistência a computador.
+
+Por outro lado, ela usa o celular com muita naturalidade: conversa com clientes, fornecedores, faz PIX, acessa bancos, marketplaces etc.
+
+Pensando nisso, e aproveitando que estamos estudando Flutter, decidi criar o ONCredit especialmente para ela.
+A ideia é um aplicativo bem simples que permita:
+
+Cadastrar clientes de forma rápida e prática
+(nome, CPF, telefone(s), apelido, data de cadastro etc.)
+Registrar as compras/fiados do cliente
+(descrição do produto, quantidade, valor total, data etc.)
+Acumular automaticamente o valor das compras na dívida do cliente
+Mostrar um resumo claro da situação da conta
+(total devido, total pago, saldo devedor, histórico resumido…)
+Registrar os pagamentos realizados
+(valor pago, forma de pagamento, data etc.) e abater da dívida
+Fluxo principal imaginado
+Na tela inicial:
+
+Lista rápida de clientes (ou busca por nome/CPF)
+Ao selecionar um cliente, ele fica em destaque
+Botões grandes e intuitivos para as ações mais comuns:
+→ Nova compra / fiado
+→ Registrar pagamento
+→ Ver extrato / resumo da conta
+→ Editar dados do cliente
+Cada ação abre uma tela dedicada, simples e focada naquela operação.
+
+Características importantes
+Aplicativo single-user — só a dona da loja (ou alguém de extrema confiança) vai usar
+→ Por isso não precisa de login elaborado, autenticação complexa, multiusuário etc.
+Interface muito simples, sem firulas visuais pesadas
+(temos poucas aulas ainda e queremos entregar algo funcional rápido)
+Queremos evitar repetir o sofrimento que tivemos com Firebase Authentication no projeto anterior 😅
+Perguntas e pontos de decisão
+Vocês acham viável fazer isso no tempo que temos?
+Dá para implementar tudo isso com o que já vimos de Flutter até agora?
+Sugestões de melhoria no fluxo, nomes de telas, campos obrigatórios etc.?
+Sobre persistência de dados
+Pensei em usar uma base de dados online (Firebase Realtime Database) acessando diretamente via REST/JSON, porque:
+
+É o que já conhecemos um pouco
+Dá backup automático na nuvem
+Em caso de troca de celular, os dados não se perdem
+Mas também considerei opções locais puras (sem internet), já que é single-user e ela usa o app basicamente offline.
+
+Qual caminho vocês acham mais simples e confiável para esse caso?
+
+RTDB via REST puro (sem SDK completo)?
+Firebase RTDB com o pacote firebase_database do Flutter?
+Ou algo 100% local (Hive, Isar, Drift, sqflite, shared_preferences + json…)?
+Outra sugestão?
+O que acham? Ideias, críticas, sugestões?
+
+)
+- [ ] [01. Contexto do Projeto](./01.md)
+- [ ] [02. Descrição do Projeto](./02.md)
+- [ ] [03. Configuração do Firebase](./03.md)
+- [ ] [04. Configuração do Stripe](./04.md)
